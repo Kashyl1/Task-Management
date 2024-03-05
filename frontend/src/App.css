@@ -1,0 +1,25 @@
+/* App.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: rgba(2, 5, 50, 1);
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

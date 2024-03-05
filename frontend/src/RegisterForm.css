@@ -1,0 +1,179 @@
+.register-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('assets/5.jpg');
+  min-height: 100vh;
+  background-size: cover;
+  padding: 40px;
+}
+.welcome-section {
+  flex-basis: 50%;
+  padding: 3rem;
+  color: white;
+}
+
+.register-container {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: rgba(25, 5, 65, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+
+}
+
+.register-header {
+  color: white;
+  margin: 1rem 0;
+  font-size: 2rem;
+}
+
+.register-form {
+  width: 100%;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+  color: white;
+  position: relative;
+}
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.input-group .password-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #9290C3;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #9290C3;
+  color: white;
+  cursor: pointer;
+}
+.form-footer {
+  width: 100%;
+  text-align: center;
+}
+
+.error-message {
+  color: #cc0000;
+  margin-bottom: 1rem;
+}
+
+.login-prompt {
+  font-size: 0.9rem;
+  color: white;
+  margin-top: 1.5rem;
+}
+.welcome-section p {
+  color: #9290C3;
+}
+.fa-user {
+  color: white;
+}
+.btn-submit {
+  width: 100%;
+  padding: 10px;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #9290C3;
+  color: white;
+  cursor: pointer;
+}
+.btn-submit:hover {
+  background-color: #7a77c8;
+}
+.verification-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.verification-container {
+  background-color: #0B2447;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+}
+.verification-container h2 {
+  color: #E2BFB3;
+  margin-bottom: 1rem;
+}
+.verification-container p {
+  color: white;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+.verification-container .fa-envelope {
+  color: white;
+  padding: 1rem;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .register-page {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .welcome-section,
+  .register-container {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+  }
+
+  .register-form input,
+  .register-form button {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .register-form input,
+  .register-form button {
+    width: calc(100% - 20px);
+  }
+
+  .register-header,
+  .login-prompt,
+  .verification-container h2,
+  .verification-container p {
+    font-size: 0.8rem;
+  }
+
+  .verification-container {
+    padding: 1rem;
+  }
+}
