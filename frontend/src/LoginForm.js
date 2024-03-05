@@ -32,7 +32,7 @@ const LoginForm = ({ setIsLoggedIn }) => {
         <div className="login-page">
             <div className="welcome-section">
                 <h1>Welcome to website</h1>
-                <p>Welcome to our trading platform for cryptocurrencies and stocks! Log in here to gain access to a wide range of assets and start trading with ease. Whether you're a seasoned investor or just getting started, our user-friendly interface and comprehensive tools make it simple to buy and sell cryptocurrencies and stocks. Join us today and take control of your financial future.</p>
+                <p>Welcome to our task management platform! Sign up now to unlock a seamless experience of organizing your tasks. Whether you need to schedule tasks for specific hours or coordinate group meetings, our intuitive interface has you covered. Whether you're a busy professional or someone managing personal projects, our platform is designed to simplify your task management process. Get started today and regain control over your schedule!</p>
             </div>
             <div className="login-container">
                 <FontAwesomeIcon icon={faUser} size="2x" />
