@@ -36,7 +36,7 @@ To get a local copy up and running follow these simple steps.
 1. Clone the repository
 
 ```
-git clone https://github.com/Kashyl1/task-manager-app.git
+git clone https://github.com/Kashyl1/Task-Management-app.git
 ```
 2.Navigate to the backend directory and run the Spring Boot application
 ```
@@ -52,12 +52,6 @@ npm start
 
 The application should now be running on `localhost:8080` for the backend and `localhost:3000` for the frontend.
 
-<h2>Contributing</h2>
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
-
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
@@ -70,10 +64,12 @@ Distributed under the MIT License.
 
 <h2> Login and Registration </h2>
 
-![image](https://github.com/Kashyl1/task-management3/assets/92478936/cd202c3e-f45b-4682-b1e2-f9751a3324e2)
+![image](https://github.com/Kashyl1/Task-Management/assets/92478936/0319baa0-1b0d-403f-b195-86dc618a3580)
 
 
-![image](https://github.com/Kashyl1/task-management3/assets/92478936/131a6ee5-8f70-4e7b-b580-92d3133279b0)
+
+![image](https://github.com/Kashyl1/Task-Management/assets/92478936/d1c28cbd-4b17-4065-b804-d4b6ac88771d)
+
 
 
 
