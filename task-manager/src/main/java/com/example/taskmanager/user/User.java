@@ -51,7 +51,6 @@ public class User implements UserDetails {
     )
     private Set<Group> groups = new HashSet<>();
 
-    // Relacja użytkownika do zadań
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Task> tasks = new HashSet<>();
 

@@ -3,11 +3,19 @@ package com.example.taskmanager.Task;
 import com.example.taskmanager.Group.Group;
 import com.example.taskmanager.user.User;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Task {
     @Id
