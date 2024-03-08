@@ -16,7 +16,7 @@ A comprehensive task management solution built with Java, Spring Boot for the ba
 
 - **Backend**: Java, Spring Boot, Spring Security
 - **Frontend**: React
-- **Database**: PostGreSql
+- **Database**: PostGreSql, Amazon AWS S3 Bucket
 - **Other**: MailDev for mail verification
 
 <h2>Getting Started</h2>
@@ -29,6 +29,7 @@ To get a local copy up and running follow these simple steps.
 - Install Node.js (version 14 or above)
 - Install PostGreSql and configure it accordingly.
 - Install MailDev https://github.com/jeandonaldroselin/maildev
+- Configure your Amazon AWS S3 Bucket
 
 <h3>Installation</h3>
 
@@ -69,6 +70,9 @@ Distributed under the MIT License.
 
 
 ![image](https://github.com/Kashyl1/Task-Management/assets/92478936/d1c28cbd-4b17-4065-b804-d4b6ac88771d)
+
+(Temporary solution)
+![img.png](img.png)
 
 
 
