@@ -41,7 +41,6 @@ git clone https://github.com/Kashyl1/Task-Management-app.git
 ```
 2.Navigate to the backend directory and run the Spring Boot application
 ```
-cd backend
 ./mvnw spring-boot:run
 ```
 3. Navigate to the frontend directory, install dependencies, and start the React application
