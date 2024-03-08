@@ -1,9 +1,13 @@
 package com.example.taskmanager.Task;
 
+import com.example.taskmanager.config.JwtService;
+import com.example.taskmanager.user.User;
+import com.example.taskmanager.user.UserRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -16,11 +20,14 @@ import java.util.stream.Collectors;
 public class TaskController {
 
     private final TaskService service;
-
+    private final UserRepository userRepository;
+    private final JwtService jwtService;
     @PostMapping("/addTask")
-    public ResponseEntity<Task> createTask(@RequestBody TaskRequest TaskRequest, Principal principal) {
-        String username = principal.getName();
-        Task task = service.addTask(username, TaskRequest);
+    public ResponseEntity<Task> createTask(@RequestBody TaskRequest taskRequest, @RequestHeader("Authorization") String authorizationHeader) {
+        String token = authorizationHeader.substring(7);
+        User user = getUserFromToken(token);
+
+        Task task = service.addTask(user.getEmail(), taskRequest);
         return new ResponseEntity<>(task, HttpStatus.CREATED);
     }
     @PutMapping("/{taskId}")
@@ -36,10 +43,19 @@ public class TaskController {
         return ResponseEntity.noContent().build();
     }
     @GetMapping
-    public ResponseEntity<List<TaskResponse>> getUserTasks(Principal principal) {
-        String username = principal.getName();
-        List<Task> tasks = service.getUserTasks(username);
+    public ResponseEntity<List<TaskResponse>> getUserTasks(@RequestHeader("Authorization") String authorizationHeader) {
+        String token = authorizationHeader.substring(7);
+        User user = getUserFromToken(token);
+
+        List<Task> tasks = service.getUserTasks(user.getEmail());
         List<TaskResponse> response = tasks.stream().map(task -> new TaskResponse(task.getId(), task.getDescription(), task.getDueDate())).collect(Collectors.toList());
         return ResponseEntity.ok(response);
     }
+    public User getUserFromToken(String token) {
+        String userEmail = jwtService.extractUsername(token);
+        return userRepository.findByEmail(userEmail)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + userEmail));
+    }
+
+
 }

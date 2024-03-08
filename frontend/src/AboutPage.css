@@ -1,0 +1,14 @@
+.about-page {
+  color: white;
+  padding: 20px;
+}
+
+.about-page h1 {
+  text-align: center;
+}
+
+.about-page p {
+  text-align: justify;
+  max-width: 600px;
+  margin: 0 auto;
+}
