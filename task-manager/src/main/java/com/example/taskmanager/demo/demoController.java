@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/demo-controller")
+@RequestMapping("/api/app")
 public class demoController {
     @GetMapping
-    public ResponseEntity<String> SayHello() {
-        return ResponseEntity.ok("Witaj");
+    public ResponseEntity<String> TakieJestZycie() {
+        return ResponseEntity.ok("");
     }
 }

@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DeleteTaskButton from './DeleteTaskButton';
-import EditTaskForm from './EditTaskForm';
+import TaskFormEdit from './TaskFormEdit';
+import Card from './Card';
+import './TasksList.css';
+import Modal from './Modal';
 
 const TasksList = ({ shouldRefreshTasks }) => {
     const [tasks, setTasks] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false);
     const [editingTask, setEditingTask] = useState(null);
 
-
-
     const fetchTasks = async () => {
-        setIsLoaded(false);
         try {
             const response = await axios.get('/api/tasks');
+            const sortedTasks = response.data.sort((a, b) => {
+                return new Date(a.dueDate) - new Date(b.dueDate);
+            });
             setTasks(response.data);
-            setIsLoaded(true);
         } catch (error) {
             console.error('Error fetching tasks:', error);
         }
@@ -30,31 +31,40 @@ const TasksList = ({ shouldRefreshTasks }) => {
         setEditingTask(null);
         fetchTasks();
     };
+
     useEffect(() => {
       fetchTasks();
     }, [shouldRefreshTasks]);
+    const handleEdit = (taskToEdit) => {
+     console.log("Setting editing task:", taskToEdit);
+     setEditingTask(taskToEdit);
+    };
 
-    return (
-        <div>
-            <h2>Your Tasks</h2>
-            <button onClick={fetchTasks}>Refresh Tasks</button>
-            <ul>
-                {tasks.map((task) => (
-                    <li key={task.id}>
-                        {editingTask?.id === task.id ? (
-                            <EditTaskForm task={editingTask} onSuccess={handleEditSuccess} />
-                        ) : (
-                            <>
-                                {task.description} - Time: {new Date(task.dueDate).toLocaleString()}
-                                <button onClick={() => setEditingTask(task)}>Edit</button>
-                                <DeleteTaskButton taskId={task.id} onSuccess={handleDeleteSuccess} />
-                            </>
-                        )}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+    const handleDelete = async (taskId) => {
+      try {
+        await axios.delete(`/api/tasks/${taskId}`);
+        handleDeleteSuccess();
+      } catch (error) {
+        console.error('Error deleting task:', error);
+      }
+    };
+  return (
+    <div className="tasks-list">
+        {tasks.map((task) => (
+        <Card
+            key={task.id}
+            task={task}
+            onEdit={() => handleEdit(task)}
+            onDelete={() => handleDelete(task.id)}
+        />
+        ))}
+            {editingTask && (
+                <Modal onClose={() => setEditingTask(null)}>
+                <TaskFormEdit task={editingTask} onSuccess={handleEditSuccess} />
+            </Modal>
+            )}
+    </div>
+  );
 };
 
 export default TasksList;

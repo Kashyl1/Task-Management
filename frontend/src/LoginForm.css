@@ -9,8 +9,6 @@
   padding: 40px;
 }
 
-
-
 .login-container {
   flex-basis: 50%;
   display: flex;
@@ -80,7 +78,7 @@
   }
 
   .login-container, .welcome-section {
-    flex-basis: 100%;
+    flex-basis: 50%;
     margin-bottom: 20px;
   }
 
@@ -105,4 +103,7 @@
     color: white;
     font-size: 12px;
     text-decoration: none;
+}
+.login-body {
+  padding: 0 !important;
 }

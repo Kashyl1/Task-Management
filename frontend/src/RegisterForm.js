@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './RegisterForm.css';
@@ -47,6 +47,12 @@ const RegisterForm = () => {
     setFormData({ ...formData, [id]: value });
     setErrors({ ...errors, [id]: '' });
     };
+    useEffect(() => {
+        document.body.classList.add('login-body');
+        return () => {
+            document.body.classList.remove('login-body');
+        };
+    }, []);
 
      if (isSubmitted) {
             return (
@@ -67,7 +73,7 @@ const RegisterForm = () => {
     return (
     <div className="register-page">
     <div className="welcome-section">
-          <h1>Welcome to website</h1>
+          <h1>Good luck!</h1>
           <p>Welcome to our task management platform! Sign up now to unlock a seamless experience of organizing your tasks. Whether you need to schedule tasks for specific hours or coordinate group meetings, our intuitive interface has you covered. Whether you're a busy professional or someone managing personal projects, our platform is designed to simplify your task management process. Get started today and regain control over your schedule!</p>
       </div>
         <div className="register-container">
