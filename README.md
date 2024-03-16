@@ -70,8 +70,8 @@ Distributed under the MIT License.
 
 ![image](https://github.com/Kashyl1/Task-Management/assets/92478936/d1c28cbd-4b17-4065-b804-d4b6ac88771d)
 
-(Temporary solution)
-![img.png](img.png)
+![image](https://github.com/Kashyl1/Task-Management/assets/92478936/b0e55d9c-42b9-4c34-a1d9-df6140c5be37)
+
 
 
 
