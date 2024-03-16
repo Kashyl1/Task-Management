@@ -15,5 +15,7 @@ public class TaskResponse {
     private Long id;
     private String description;
     private LocalDateTime dueDate;
+    private String title;
+    private Boolean archived;
 
 }

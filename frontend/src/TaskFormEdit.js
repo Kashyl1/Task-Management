@@ -5,12 +5,13 @@ import './TaskFormEdit.css';
 const TaskFormEdit = ({ task, onSuccess }) => {
     const [description, setDescription] = useState(task.description);
     const [dueDate, setDueDate] = useState(task.dueDate);
+    const [title, setTitle] = useState(task.title);
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.put(`/api/tasks/${task.id}`, { description, dueDate });
+            await axios.put(`/api/tasks/${task.id}`, { title, description, dueDate });
             onSuccess();
             setErrorMessage('');
         } catch (error) {
@@ -23,6 +24,17 @@ const TaskFormEdit = ({ task, onSuccess }) => {
     return (
             <form onSubmit={handleSubmit} className="task-form-edit">
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
+                <div className="form-group">
+                    <label htmlFor="title" className="label-edit">Title:</label>
+                    <input
+                        id="title-edit"
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        placeholder="Add task's title"
+                        className="form-control"
+                    />
+                </div>
                 <div className="form-group">
                     <label htmlFor="description-edit" className="label-edit">Description:</label>
                     <input

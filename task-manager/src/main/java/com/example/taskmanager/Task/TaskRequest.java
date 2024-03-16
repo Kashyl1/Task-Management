@@ -14,4 +14,5 @@ import java.time.LocalDateTime;
 public class TaskRequest {
     private String description;
     private LocalDateTime dueDate;
+    private String title;
 }

@@ -33,7 +33,7 @@ public class TaskController {
     @PutMapping("/{taskId}")
     public ResponseEntity<TaskResponse> updateTask(@PathVariable Long taskId, @Valid @RequestBody TaskRequest taskRequest) {
         Task updatedTask = service.updateTask(taskId, taskRequest);
-        TaskResponse response = new TaskResponse(updatedTask.getId(), updatedTask.getDescription(), updatedTask.getDueDate());
+        TaskResponse response = new TaskResponse(updatedTask.getId(), updatedTask.getDescription(), updatedTask.getDueDate(), updatedTask.getTitle(), updatedTask.isArchived());
         return ResponseEntity.ok(response);
     }
 
@@ -42,13 +42,13 @@ public class TaskController {
         service.deleteTask(taskId);
         return ResponseEntity.noContent().build();
     }
-    @GetMapping
+    @GetMapping("/active")
     public ResponseEntity<List<TaskResponse>> getUserTasks(@RequestHeader("Authorization") String authorizationHeader) {
         String token = authorizationHeader.substring(7);
         User user = getUserFromToken(token);
 
         List<Task> tasks = service.getUserTasks(user.getEmail());
-        List<TaskResponse> response = tasks.stream().map(task -> new TaskResponse(task.getId(), task.getDescription(), task.getDueDate())).collect(Collectors.toList());
+        List<TaskResponse> response = tasks.stream().map(task -> new TaskResponse(task.getId(), task.getDescription(), task.getDueDate(), task.getTitle(), task.isArchived())).collect(Collectors.toList());
         return ResponseEntity.ok(response);
     }
     public User getUserFromToken(String token) {
@@ -56,6 +56,21 @@ public class TaskController {
         return userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + userEmail));
     }
+    @PutMapping("/{taskId}/complete")
+    public ResponseEntity<Void> completeAndArchiveTask(@PathVariable Long taskId) {
+        service.completeAndArchiveTask(taskId);
+        return ResponseEntity.ok().build();
+    }
+    @GetMapping("/archived")
+    public ResponseEntity<List<TaskResponse>> getArchivedTasks(@RequestHeader("Authorization") String authorizationHeader) {
+        String token = authorizationHeader.substring(7);
+        User user = getUserFromToken(token);
 
+        List<Task> tasks = service.getArchivedTasks(user.getEmail());
+        List<TaskResponse> response = tasks.stream()
+                .map(task -> new TaskResponse(task.getId(), task.getDescription(), task.getDueDate(), task.getTitle(), task.isArchived()))
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(response);
+    }
 
 }

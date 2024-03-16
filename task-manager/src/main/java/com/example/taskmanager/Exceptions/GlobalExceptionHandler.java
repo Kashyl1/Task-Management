@@ -1,13 +1,11 @@
 package com.example.taskmanager.Exceptions;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,8 +36,8 @@ public class GlobalExceptionHandler {
         });
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
-    @ExceptionHandler(TaskDescriptionIsNullException.class)
-    public ResponseEntity<Object> handleTaskDescriptionIsNullException(TaskDescriptionIsNullException e) {
+    @ExceptionHandler(TaskFieldIsNull.class)
+    public ResponseEntity<Object> handleTaskFieldIsNull(TaskFieldIsNull e) {
         Map<String, String> error = new HashMap<>();
         error.put("message", e.getMessage());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);

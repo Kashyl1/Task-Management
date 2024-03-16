@@ -22,9 +22,11 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String title;
     private String description;
     private LocalDateTime dueDate;
-    private boolean isCompleted;
+    private boolean completedStatus;
+    private boolean archived;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
