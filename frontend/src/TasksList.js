@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import DeleteTaskButton from './DeleteTaskButton';
 import TaskFormEdit from './TaskFormEdit';
 import Card from './Card';
 import './TasksList.css';
 import Modal from './Modal';
 import './TaskFormAdd.css';
-import { FiArchive, FiInbox } from 'react-icons/fi';
 
 
 const TasksList = ({ shouldRefreshTasks }) => {
@@ -42,7 +40,7 @@ const TasksList = ({ shouldRefreshTasks }) => {
 
     useEffect(() => {
         fetchTasks();
-    }, [showArchived]);
+    }, [showArchived, shouldRefreshTasks]);
 
     const handleEdit = (taskToEdit) => {
      setEditingTask(taskToEdit);

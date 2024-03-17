@@ -23,7 +23,7 @@
 .edit-button, .delete-button {
     align-items: center;
     justify-content: center;
-    background-color: #3272A4 !important;
+    background-color: #3272A4;
     color: black;
 }
 
@@ -32,7 +32,11 @@
     color: #ffffff;
 }
 
-.edit-button .fi, .delete-button .fi {
-    margin-right: 0.3rem;
+.card .task-description {
+    overflow-y: auto;
+    color: white;
+}
 
+.task-title-section h3, .task-description-section h3 {
+    color: white;
 }

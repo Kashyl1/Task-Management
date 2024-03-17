@@ -6,8 +6,16 @@ const Card = ({ task, onEdit, onDelete, onToggleCompleted, showArchived }) => {
     return (
         <div className="card">
             <div className="card-container">
-                <h4>Title: <b>{task.title}</b></h4>
-                <p>Description: {task.description}</p>
+                <div className="task-title-section">
+                    <h3>Title:</h3>
+                    <p className="task-description">{task.title}</p>
+                </div>
+
+                <div className="task-description-section">
+                    <h3>Description:</h3>
+                    <p className="task-description">{task.description}</p>
+                </div>
+
                 <p>Due date: {new Date(task.dueDate).toLocaleString()}</p>
                 {!task.completedStatus && !showArchived && (
                     <button onClick={() => onToggleCompleted(task.id, true)} className="complete-button">
