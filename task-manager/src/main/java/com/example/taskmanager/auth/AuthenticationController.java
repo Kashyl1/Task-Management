@@ -1,6 +1,6 @@
 package com.example.taskmanager.auth;
 
-import com.example.taskmanager.Exceptions.AccountNotVerifiedException;
+import com.example.taskmanager.exceptions.AccountNotVerifiedException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

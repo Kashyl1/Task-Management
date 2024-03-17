@@ -1,4 +1,4 @@
-package com.example.taskmanager.Exceptions;
+package com.example.taskmanager.exceptions;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

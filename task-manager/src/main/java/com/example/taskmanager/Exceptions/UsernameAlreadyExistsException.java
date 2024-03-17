@@ -1,4 +1,4 @@
-package com.example.taskmanager.Exceptions;
+package com.example.taskmanager.exceptions;
 
 public class UsernameAlreadyExistsException extends RuntimeException {
     public UsernameAlreadyExistsException(String message) {

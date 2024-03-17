@@ -1,7 +1,4 @@
-package com.example.taskmanager.Exceptions;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+package com.example.taskmanager.exceptions;
 
 
 public class EmailAlreadyExistsException extends RuntimeException {

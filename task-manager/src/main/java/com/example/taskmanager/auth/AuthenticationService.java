@@ -1,8 +1,8 @@
 package com.example.taskmanager.auth;
 
-import com.example.taskmanager.Exceptions.EmailAlreadyExistsException;
-import com.example.taskmanager.Exceptions.UsernameAlreadyExistsException;
-import com.example.taskmanager.MailVerification.VerificationService;
+import com.example.taskmanager.exceptions.EmailAlreadyExistsException;
+import com.example.taskmanager.exceptions.UsernameAlreadyExistsException;
+import com.example.taskmanager.mailVerification.VerificationService;
 import com.example.taskmanager.config.JwtService;
 import com.example.taskmanager.user.Role;
 import com.example.taskmanager.user.User;
@@ -28,7 +28,6 @@ public class AuthenticationService {
     private final VerificationService verificationService;
 
     public AuthenticationResponse register(RegisterRequest request) {
-        Optional<User> existingUser = userRepository.findByEmail(request.getEmail());
 
         if (userRepository.findByEmail(request.getEmail()).isPresent()) {
             throw new EmailAlreadyExistsException("Email already exists");
@@ -59,8 +58,8 @@ public class AuthenticationService {
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate
                 (new UsernamePasswordAuthenticationToken(
-                request.getEmail(),
-                request.getPassword()
+                        request.getEmail(),
+                        request.getPassword()
                 ));
         var user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));

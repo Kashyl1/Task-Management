@@ -1,7 +1,7 @@
 package com.example.taskmanager.user;
 
-import com.example.taskmanager.Group.Group;
-import com.example.taskmanager.Task.Task;
+import com.example.taskmanager.group.Group;
+import com.example.taskmanager.task.Task;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
