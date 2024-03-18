@@ -1,6 +1,5 @@
 package com.example.taskmanager.task;
 
-import com.example.taskmanager.group.Group;
 import com.example.taskmanager.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
-import java.util.Set;
 
 @Builder
 @Data
@@ -31,7 +29,4 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-
-    @ManyToMany(mappedBy = "tasks")
-    private Set<Group> groups = new HashSet<>();
 }

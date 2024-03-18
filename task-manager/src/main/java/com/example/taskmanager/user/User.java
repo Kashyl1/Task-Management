@@ -1,6 +1,5 @@
 package com.example.taskmanager.user;
 
-import com.example.taskmanager.group.Group;
 import com.example.taskmanager.task.Task;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -44,14 +43,6 @@ public class User implements UserDetails {
     private Role role;
 
     private String profileImageUrl;
-
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(
-            name = "user_groups",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "group_id")
-    )
-    private Set<Group> groups = new HashSet<>();
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Task> tasks = new HashSet<>();

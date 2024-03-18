@@ -74,12 +74,12 @@ public class TaskServiceTest {
         User user = new User();
         user.setId(1);
         user.setEmail(email);
-
+        // kjedy
         when(userRepository.findByEmail(email)).thenReturn(Optional.of(user));
         when(taskRepository.findByUserIdAndArchivedTrue(Long.valueOf(user.getId()))).thenReturn(new ArrayList<>());
 
         List<Task> result = taskService.getArchivedTasks(email);
-
+        // notak
         assertNotNull(result);
         verify(taskRepository, times(1)).findByUserIdAndArchivedTrue(Long.valueOf(user.getId()));
     }
