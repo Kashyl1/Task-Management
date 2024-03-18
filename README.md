@@ -1,15 +1,13 @@
 <h1>Task Management Application</h1>
 
-<h1>UNDER DEVELOPMENT - PREVIEW ONLY</h1>
 
-A comprehensive task management solution built with Java, Spring Boot for the backend, and React for the frontend. This application is designed to streamline the process of task management, providing users with a robust platform to add, manage, and collaborate on tasks efficiently. With integrated security features, email verification, and the ability to form groups, it's the perfect tool for anyone looking to enhance their productivity.
+A comprehensive task management solution built with Java, Spring Boot for the backend, and React for the frontend. This application is designed to streamline the process of task management, providing users with a robust platform to add, manage, and collaborate on tasks efficiently. With integrated security features, email verification, it's the perfect tool for anyone looking to enhance their productivity.
 
 <h2>Features</h2>
 
 - **User Authentication and Authorization**: Secure login and registration process with Spring Security, ensuring data protection and privacy.
 - **Email Verification**: Enhances security by verifying users' email addresses during the registration process.
 - **Task Management**: Users can easily add, update, and delete their tasks, organizing their daily activities effectively.
-- **Group Collaboration**: Users can create groups and invite others to collaborate, making it easier to manage tasks collectively.
 - **Daily Task Assignments**: Allows users to assign tasks for specific days, aiding in better planning and time management.
 
 <h2>Technologies Used</h2>
